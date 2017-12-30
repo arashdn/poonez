@@ -1,0 +1,133 @@
+*,
+*:before,
+*:after {
+	box-sizing: border-box !important;
+}
+
+.myrow{
+	/* column width */
+	-moz-column-width: 20.5em !important;
+	-webkit-column-width: 20.5em !important;
+	column-width: 20.5em !important;
+	/* space between columns */
+	-moz-column-gap: 0em;
+	-webkit-column-gap: 0em;
+    column-gap: 0em !important;
+    .item {
+	display: inline-block;
+	width: 100%;
+    margin: 1px;
+    padding:0.25em;
+    }
+}
+.poonez_panel_footer{
+    background-color:#fff;color:#252525;background-color:#fff;border:none;border-top-color:#eee;border-top-style:dashed;border-top-width:2px;
+}
+.poonez_panel_header{
+    background-color:#fff !important;
+    color:@poonez_black;
+    border-bottom-color:#eee;border-bottom-style:dashed;
+    border-bottom-width:2px
+
+}
+.board_name_on_post{
+    display:block;
+    margin-left:58px;
+    margin-bottom:5px;
+    margin-top:-12px;
+    font-size:13px;
+    color:#aaa;
+}
+.poonez_panel{
+    position: relative;
+    z-index: 0;
+    padding: 5px;border:none;
+    box-shadow: 0px 0px 10px 0px @nice_aaa_shadow;
+    border-radius: 1px;
+}
+.muted_text{
+    background-color:#eee;
+    padding:2px;
+    border-radius: 3px;
+}
+.tooltip1 {
+    position: relative;
+    display: inline-block;
+}
+.tooltip1 .tooltiptext::after {
+   content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+
+.tooltip1:hover .tooltiptext {
+    visibility: visible;
+}
+.tooltip1 .tooltiptext {
+    visibility: hidden;
+    width: 60px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    padding-top:5px;
+    padding-bottom: 5px;
+    padding-right:3px;
+    padding-left:5px;
+    position: absolute;
+    z-index: 1;
+    top: 140%;
+    left: 170%;
+    margin-left: -60px;
+    font-family: 'Sahel', sans-serif;
+}
+.poonez_icon{
+    border-radius: 50%;background-color:#eee;padding-top:6px;padding-bottom:5px;padding-left:8px;padding-right:8px;color:@poonez_red;
+    cursor: pointer;
+}
+.btn_badge{
+  background: #FF5D5D;
+  color: white;
+  font-size: 10px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 4px 9px;
+  border-radius: 15px;
+  z-index: 0;
+}
+.badge_right{
+  background: #FF5D5D;
+  color: white;
+  font-size: 10px;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  padding: 4px 9px;
+  border-radius: 15px;
+  z-index: 0;
+}
+.badge_right_img{
+  background: #FF5D5D;
+  color: white;
+  font-size: 10px;
+  position: absolute;
+  top: -10px;
+  left: 11px;
+  padding: 4px 9px;
+  border-radius: 15px;
+  z-index: 1;
+}
+.poonez_numbers_forposts{
+    color:#aaa !important;
+    font-size:13px;
+    margin:5px;
+}
+[v-cloak]{
+  display: none;
+}

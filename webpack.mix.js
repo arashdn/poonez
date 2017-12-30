@@ -1,5 +1,13 @@
-let mix = require('laravel-mix');
+var mix = require('laravel-mix');
+var rtlcss = require('rtlcss');
 
+mix.options({
+    extractVueStyles: false,
+    processCssUrls: false,
+    purifyCss: false,
+    uglify: {},
+    postCss: [rtlcss]
+});
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -11,5 +19,17 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+mix.js([
+        './resources/assets/js/app.js',
+    ],
+    './public/js');
+
+mix.less('resources/assets/less/app.less', 'public/css/less.css');
+mix.styles([
+    'public/css/less.css',
+    // './node_modules/toastr/build/toastr.css'
+], 'public/css/app.css');
+mix.copy('resources/assets/fonts', 'public/fonts');
+
+// mix.js('resources/assets/js/app.js', 'public/js')
+//    .sass('resources/assets/sass/app.scss', 'public/css');

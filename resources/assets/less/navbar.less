@@ -1,0 +1,199 @@
+body{
+    font-family: @font;
+    position: relative;
+    z-index: 0;
+}
+.header{
+    text-align: center !important;
+    padding:15px;
+    border-bottom-color:#eee;
+    border-bottom-style:@border-style;
+    border-width:4px;
+    margin-bottom: 10px;
+}
+.poonez_brand{
+    font-size:40px;
+    color:@poonez_black;
+    border-bottom-color:#eee;
+    border-bottom-style:@border-style;
+    border-bottom-width:2px;
+    &:hover,&:active,&:focus{color:@poonez_black;text-decoration: none;}
+}
+.brand_col{
+   padding:15px;
+}
+.btn{
+    color:@poonez_black;
+    margin:2px;
+    border:none;
+    background-color:@nice_aaa_color;
+    transition:color,background-color , 0.6s;
+    &:hover,&:active,&:focus{
+        background-color:lighten(@border-color,27%);
+        border:none;
+    }
+}
+.btn_group{
+    text-align: center !important;
+}
+#search {
+    z-index: 2;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+
+    -webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+
+    -webkit-transform: translate(0px, 0%) scale(0, 0);
+	-moz-transform: translate(0px, 0%) scale(0, 0);
+	-o-transform: translate(0px, 0%) scale(0, 0);
+	-ms-transform: translate(0px, 0%) scale(0, 0);
+	transform: translate(0px,0) scale(0, 0);
+
+    opacity: 0;
+}
+
+#search.open1 {
+    -webkit-transform: translate(0px, 0px) scale(1, 1);
+    -moz-transform: translate(0px, 0px) scale(1, 1);
+	-o-transform: translate(0px, 0px) scale(1, 1);
+	-ms-transform: translate(0px, 0px) scale(1, 1);
+	transform: translate(0px, 0px) scale(1, 1);
+    opacity: 1;
+}
+
+#search input[type="search"] {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    background: rgba(0, 0, 0, 0);
+    font-size: 40px;
+    font-weight: 300;
+    text-align: center;
+    border: 0px;
+    margin: 0px auto;
+    margin-top: -51px;
+    padding-left: 30px;
+    padding-right: 30px;
+    outline: none;
+}
+.message_input{
+    color:#252525;
+    background: #eee;
+    outline: none;
+    text-align:left;
+    border: 0px;
+}
+#search .btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: 61px;
+    margin-left: -39px;
+    background-color:@nice_aaa_color;
+    border:none;
+}
+.fixed-button {
+  background-color: @poonez_red;
+  color: #FFFFFF;
+  border: none;
+  outline: none;
+  position: fixed;
+  bottom: 0px;
+  left: 15px;
+  padding:5px;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  box-shadow: 1px 3px 5px #888888;
+  cursor: pointer !important;
+  z-index: 1;
+  text-decoration: none;
+  transition: color,background-color 0.2s;
+  &:hover,&:active,&:focus{
+      background-color:#FFFFFF;
+      color:@poonez_red;
+      text-decoration: none;
+  }
+}
+.z_index{
+    z-index:1;
+}
+.report_btn{
+    color:#fff;
+    background-color:@poonez_red;
+     &:hover,&:focus{
+         color:#fff;
+    background-color:@poonez_red;
+    }
+    &:active{
+         color:#fff;
+    background-color:darken(@poonez_red,15%);
+    }
+}
+.report_btn.active{
+    color:#fff;
+    background-color:darken(@poonez_red,15%);
+}
+.message_chat_content{
+}
+.time{
+    color:#aaa;
+    font-size:12px;
+}
+.next_to_icon{
+    font-size:20px;
+    //border-radius: 50%;background-color:#eee;padding-top:6px;padding-bottom:7px;padding-left:13px;padding-right:10px;color:@poonez_red;
+}
+.messages_tab_content{
+    height:450px;
+    overflow-y:scroll;
+    padding-top:15px;
+}
+.friend{
+    text-align:right;
+    margin:5px;
+    padding:15px;
+    border-radius: 3px;
+    div{
+        color:#aaa;
+    }
+}
+.user{
+    text-align:left;
+    margin:5px;
+    padding:15px;
+    border-radius: 3px;
+    div{
+        color:#aaa;
+    }
+}
+.notfication_img{
+
+}
+.notfication_p{
+    color:#252525;
+    font-weight: 600;
+}
+.notfications_content{
+    height: 450px;
+    overflow-y:scroll;
+    overflow-x: hidden;
+}
+
+@media (max-width:426px){
+    .search_btn{width:100%;margin-right:-3px;margin-left:-3px;}
+    .sign_in_btn,.sign_up_btn,.explore_btn,.myprofile_btn,.mymessages_btn{width:34%;margin:none;margin-left:-4px;margin-right:-4px;}
+    #search input[type="search"]{font-size:26px;}
+    #search .btn{ margin-left: -36px;background-color:@nice_aaa_color;}
+}
+@media(max-width:320.5px){
+    #search .btn{left:10%;margin-left:0;width:80%;background-color:@nice_aaa_color;}
+}
