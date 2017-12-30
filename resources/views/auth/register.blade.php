@@ -1,77 +1,99 @@
 @extends('master')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3"></div>
+            <div class="col-md-6 col-sm-6" style="direction:rtl;">
+                <div class="panel panel-default poonez_panel">
+                    <div class="panel-heading poonez_panel_header"><h2>ثبت نام</h2></div>
+                    <div class="panel-body">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
+                            {{ csrf_field() }}
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
-                        {{ csrf_field() }}
+                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                                <label for="name" style="" class="poonez_control_label control-label">نام و نام خانوادگی</label>
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
+                                <div class="col-md-12">
+                                    <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
+                                    @if ($errors->has('name'))
+                                        <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>
-                                @endif
+                                    @endif
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                <label for="email" class="poonez_control_label control-label">ایمیل</label>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                                <div class="col-md-12">
+                                    <input id="email" style="direction:ltr;" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
+                                    @if ($errors->has('email'))
+                                        <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
-                                @endif
+                                    @endif
+                                </div>
                             </div>
-                        </div>
+                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                                <label for="name" class="poonez_control_label control-label">جنسیت</label>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
+                                <div class="col-md-12">
+                                    <select class="form-control">
+                                        <option value="">مرد</option>
+                                        <option value="">زن</option>
+                                        <option value="">دیگر</option>
+                                    </select>
+                                </div>
+                            </div>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
+                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                <label for="password" class="poonez_control_label control-label">رمز عبور</label>
 
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
+                                <div class="col-md-12">
+                                    <input id="password" style="direction:ltr;" type="password" class="form-control" name="password" required>
+
+                                    @if ($errors->has('password'))
+                                        <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
-                                @endif
+                                    @endif
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+                            <div class="form-group">
+                                <label for="password-confirm" class="poonez_control_label control-label">تکرار رمز</label>
 
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                <div class="col-md-12">
+                                    <input id="password-confirm" style="direction:ltr;" type="password" class="form-control" name="password_confirmation" required>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <label>
+                                        <input style="vertical-align:middle;" type="checkbox" name="rules"> من <a href="#">قوانین</a> پونز را قبول دارم.
+                                    </label>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn">
+                                        ثبت نام
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="panel-footer poonez_panel_footer">
+                        قبلا عضو شده اید ..؟؟؟&nbsp;<a href="{{route('login')}}">ورود به پونز</a>
+                    </div>
                 </div>
             </div>
+            <div class="col-md-3  col-sm-3"></div>
         </div>
     </div>
-</div>
 @endsection
