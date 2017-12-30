@@ -1,0 +1,65 @@
+##Defualt
+
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+/.vagrant
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+.env
+
+.rnd
+package-lock.json
+
+## Assets
+public/css/*
+public/js/*
+public/fonts/*
+/public/mix-manifest.json
+
+##local helpers
+composer.phar
+.phpstorm.meta.php
+_ide_helper.php
+
+
+## IDE Files
+#-------------------------
+/nbproject/
+.idea/*
+.vscode/*
+.brackets.json
+
+## Sublime Text cache files
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+
+
+
+## Windows Files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+## OSX
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.AppleDB
+.AppleDesktop
+.apdisk
+
+
+## Other files should Not be On Project
+*.exe
