@@ -38,17 +38,6 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                <label for="name" class="poonez_control_label control-label">جنسیت</label>
-
-                                <div class="col-md-12">
-                                    <select class="form-control">
-                                        <option value="">مرد</option>
-                                        <option value="">زن</option>
-                                        <option value="">دیگر</option>
-                                    </select>
-                                </div>
-                            </div>
 
                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                                 <label for="password" class="poonez_control_label control-label">رمز عبور</label>
