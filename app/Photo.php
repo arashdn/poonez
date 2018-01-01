@@ -22,6 +22,7 @@ class Photo
         }
         return $filename . '.' . $extension;
     }
+
     protected function sanitize($string, $force_lowercase = true, $anal = false)
     {
         $strip = array("~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "=", "+", "[", "{", "]",
@@ -52,7 +53,7 @@ class Photo
         $filename = $this->sanitize($originalNameWithoutExt);
 
         $allowed_filename = $this->createUniqueFilename( $filename, $extension );
-        
+
         $manager = new ImageManager();
         $img = $manager->make( $photo )
             //->resize(Config::get('global.post.image.size.w'),Config::get('global.post.image.size.h'))

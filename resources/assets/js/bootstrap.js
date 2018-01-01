@@ -51,7 +51,10 @@ if (token) {
 //     broadcaster: 'pusher',
 //     key: 'your-pusher-key'
 // });
+window.toastr = require('toastr');
+window.Vue = require('vue');
 
 
 require('./master/navbar');
+require('./home/home');
 

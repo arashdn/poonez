@@ -19,6 +19,8 @@
         "laravel-mix": "^1.0",
         "less": "^2.7.3",
         "less-loader": "^4.0.5",
-        "rtlcss": "^2.2.1"
+        "rtlcss": "^2.2.1",
+        "toastr": "^2.1.4",
+        "vue": "^2.5.13"
     }
 }
