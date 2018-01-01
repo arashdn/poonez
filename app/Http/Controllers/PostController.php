@@ -48,6 +48,6 @@ class PostController extends Controller
     public function all()
     {
         sleep(2);
-        return Post::with('user')->get();
+        return Post::with('user')->paginate(12);
     }
 }

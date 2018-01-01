@@ -6,7 +6,7 @@
         <div class="col-md-12" style="direction:rtl;text-align:right"><a href="{{route('post.add')}}" class="fixed-button">ایجاد پست جدید</a></div>
 
         <div class="col-md-12" id="main_view">
-            <div class="row myrow" v-cloak>
+            <div class="row myrow">
                 <div class="item"  v-for="post in posts">
                     <div class="col-md-12">
                         <div class="panel panel-default poonez_panel">
@@ -41,12 +41,18 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="col s12">
+                    <div  v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10">
+                    </div>
+                </div>
+
             </div>
         </div>
 
     </div>
     <div class="container beforload" style="display: none">
-        <div class="col-md-12" style="text-align:center;margin-top:25%;" id="loader">
+        <div class="col-md-12" style="text-align:center;margin-top:4%;" id="loader">
             <i class="fa fa-circle-o-notch fa-spin" style="font-size:60px;text-align:center;margin:0 auto;display:block"></i>
             <p style="color:#e74c3c">...درحال بارگذاری</p>
         </div>

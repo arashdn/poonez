@@ -54,6 +54,9 @@ if (token) {
 window.toastr = require('toastr');
 window.Vue = require('vue');
 
+var infiniteScroll =  require('vue-infinite-scroll');
+Vue.use(infiniteScroll);
+
 
 require('./master/navbar');
 require('./home/home');
