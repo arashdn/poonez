@@ -21,6 +21,14 @@ public/js/*
 public/fonts/*
 /public/mix-manifest.json
 
+
+/storage/post_images/**
+!/storage/post_images/index.html
+
+!/storage/post_images/thumbnails
+/storage/post_images/thumbnails/**
+!/storage/post_images/thumbnails/index.html
+
 ##local helpers
 composer.phar
 .phpstorm.meta.php

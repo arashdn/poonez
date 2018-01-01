@@ -65,8 +65,8 @@
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <div class="panel panel-default poonez_panel col-md-12">
-                <form method="POST" action="/post/add" id="addPost_form" enctype="multipart/form-data">
-                    <div class="col-md-12" dir="ltr">
+                <form method="POST" action="{{route('post.store')}}" id="addPost_form" enctype="multipart/form-data">
+                    <div class="col-md-12">
                         <br><br><br>
                         @include('partials.errors')
                     </div>
