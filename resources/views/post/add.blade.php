@@ -100,9 +100,21 @@
                         <h3>4 . برای پست خود متنی بنویسید :</h3>
 
                         <textarea name="Content" placeholder="درباره پست خود توضیح کوتاهی بنویسید!" rows="7" class="form-control" style="resize:none;"></textarea>
+
                         <hr>
                         <h3>5 . برای پست خود تگ انتخاب کنید</h3>
                         <input type="text" name="tags" class="form-control" style="direction:rtl;" placeholder="تگ۱، تگ۲">
+
+                        <hr>
+                        <h3>6 نمایش پست</h3>
+                        <div class="pull-left toggle_switch_btn">
+                            <i class="fa fa-lock" id="private_flag" style="font-size:26px;margin-top:2px;"></i>
+                            <label class="switch">
+                                <input type="checkbox" id="public_private_checkbox" name="public">
+                                <div class="slider round" ></div>
+                            </label>
+                            <i class="fa fa-globe" id="public_flag" style="font-size:25px;"></i>
+                        </div>
 
                     </div>
 

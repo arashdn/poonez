@@ -29,7 +29,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/post/all', 'PostController@all')->name('ajax.post.all');
-Route::get('/post/show','PostController@show')->name('post.show');
+Route::get('/post/show/{id?}','PostController@show')->name('post.show');
 
 
 Route::group(['middleware'=> ['auth']], function (){

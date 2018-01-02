@@ -27,7 +27,7 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->url = $request->get('url');
         $post->user_id = auth()->id();
-
+        $post->public = !empty($request->get('public'));
 
         $tg = $request->tags;
         str_replace('،',',',$tg);
@@ -45,8 +45,11 @@ class PostController extends Controller
         return redirect('/')->with('status', 'پست جدید با موفقیت به پروفایل شما افزوده شد!');
     }
 
-    public function show()
+    public function show($id)
     {
+        $post = Post::findOrFail($id);
+        $post->load('user');
+        dd($post);
         return view('post.show');
     }
 

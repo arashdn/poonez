@@ -68,4 +68,5 @@ $.ajaxSetup({
 
 require('./master/navbar');
 require('./home/home');
+require('./post/add');
 

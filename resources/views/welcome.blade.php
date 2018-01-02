@@ -37,7 +37,7 @@
 
                             </div>
                             <div class="panel-footer poonez_panel_footer" style="">
-                                <a class="btn btn-block">بیشتر</a>
+                                <a v-bind:href="'{{route('post.show').'/'}}' + post._id" class="btn btn-block">بیشتر</a>
                                 <!-- <button type="button" class="btn btn-outline-danger tooltip1" style="color:indianred;border-color: indianred;background-color: #fff">خواندن </button>-->
                             </div>
                         </div>

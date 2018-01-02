@@ -19,9 +19,12 @@ class PostsTableSeeder extends Seeder
                     'title' => "title $i",
                     'Content' => 'Content',
                     'url' => 'http://arashdn.com',
+                    'pubic' => $i%2 ==0,
                     'user_id' => $user->__toString(),
                     'tags' => ['t1','t2'],
-                    'image' => '37ecd521670c014aa2ad.jpg'
+                    'image' => '37ecd521670c014aa2ad.jpg',
+                    'created_at' => new \MongoDB\BSON\UTCDateTime(new DateTime()),
+                    'updated_at' => new \MongoDB\BSON\UTCDateTime(new DateTime()),
                 ]
             );
         }

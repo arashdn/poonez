@@ -19,6 +19,11 @@ class Post extends MyModel
         return $this->hasMany(Tag::class);
     }
 
+    public function has_access($user_id)
+    {
+
+    }
+
     public static function makeValidator($request)
     {
         $validator = Validator::make($request->all(), [
