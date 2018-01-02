@@ -24,7 +24,7 @@ class PostController extends Controller
         }
 
         $post = new Post();
-        $post->Content = $request->Content;
+        $post->content = $request->Content;
         $post->title = $request->title;
         $post->url = $request->get('url');
         $post->user_id = auth()->id();
@@ -54,8 +54,8 @@ class PostController extends Controller
             return abort(404);
 
         $post->load('user');
-        dd($post);
-        return view('post.show');
+
+        return view('post.show',['post' => $post]);
     }
 
     public function edit(Request $request)

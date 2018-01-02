@@ -10,12 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+//\DB::connection( 'mongodb' )->enableQueryLog();
 //DB::listen(function ($event)
 //{
 //    dump($event->sql);
 //    dump($event->bindings);
+//    dump($event->time);
 //});
-
 
 Route::get('/test', function () {
 });

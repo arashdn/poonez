@@ -16,10 +16,10 @@ class Post extends MyModel
         return $this->belongsTo(User::class,'user_id');
     }
 
-    public function tags()
-    {
-        return $this->hasMany(Tag::class);
-    }
+//    public function tags()
+//    {
+//        return $this->hasMany(Tag::class);
+//    }
 
     public function getPersianDateAttribute()
     {
