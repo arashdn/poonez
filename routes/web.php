@@ -29,8 +29,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/post/all', 'PostController@all')->name('ajax.post.all');
+Route::get('/post/show','PostController@show')->name('post.show');
+
 
 Route::group(['middleware'=> ['auth']], function (){
     Route::get('/post/add', 'PostController@add')->name('post.add');
     Route::post('/post/add','PostController@store')->name('post.store');
+    Route::post('/post/edit','PostController@edit')->name('post.edit');
 });

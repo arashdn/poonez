@@ -45,6 +45,16 @@ class PostController extends Controller
         return redirect('/')->with('status', 'پست جدید با موفقیت به پروفایل شما افزوده شد!');
     }
 
+    public function show()
+    {
+        return view('post.show');
+    }
+
+    public function edit(Request $request)
+    {
+        dd($request->all());
+    }
+
     public function all()
     {
         sleep(2);

@@ -57,6 +57,14 @@ window.Vue = require('vue');
 var infiniteScroll =  require('vue-infinite-scroll');
 Vue.use(infiniteScroll);
 
+var xeditable= require('X-editable/dist/bootstrap3-editable/js/bootstrap-editable.js');
+
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': window.Laravel.csrfToken,
+        'X-Requested-With': 'XMLHttpRequest'
+    }
+});
 
 require('./master/navbar');
 require('./home/home');

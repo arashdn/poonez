@@ -2,6 +2,8 @@
 
 @section('content')
 
+    <script>var getPostUrl = "{{route('ajax.post.all')}}"</script>
+
     <div class="container afterload" style="direction:rtl;" xmlns:v-on="http://www.w3.org/1999/xhtml">
         <div class="col-md-12" style="direction:rtl;text-align:right"><a href="{{route('post.add')}}" class="fixed-button">ایجاد پست جدید</a></div>
 

@@ -21,13 +21,15 @@ mix.options({
 
 mix.js([
         './resources/assets/js/app.js',
+        // './node_modules/X-editable/dist/bootstrap3-editable/js/bootstrap-editable.js',
     ],
     './public/js');
 
 mix.less('resources/assets/less/app.less', 'public/css/less.css');
 mix.styles([
     'public/css/less.css',
-    './node_modules/toastr/build/toastr.css'
+    './node_modules/toastr/build/toastr.css',
+    './node_modules/X-editable/dist/bootstrap3-editable/css/bootstrap-editable.css',
 ], 'public/css/app.css');
 mix.copy('resources/assets/fonts', 'public/fonts');
 mix.copy('node_modules/font-awesome/fonts/*', 'public/fonts');

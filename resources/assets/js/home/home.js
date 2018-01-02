@@ -19,7 +19,7 @@ var app = new Vue({
         getallpost: function () {
             const vm = this;
             $.ajax({
-                url: '/post/all?page='+vm.page,
+                url: getPostUrl+'?page='+vm.page,
                 type: 'GET',
                 // data: $.param(data),
                 beforeSend:function()

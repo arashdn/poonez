@@ -20,3 +20,29 @@ require('./bootstrap');
 // const app = new Vue({
 //     el: '#app'
 // });
+$.fn.editable.defaults.mode = 'inline';
+$.fn.editableform.buttons =
+    '<button type="submit" class="btn btn-primary btn-sm editable-submit">'+
+    '<i class="fa fa-check"></i>'+
+    '</button>'+
+    '<button type="button" class="btn btn-default btn-sm editable-cancel">'+
+    '<i class="fa fa-close"></i>'+
+    '</button>';
+$(document).ready(function() {
+    $('#title-box').editable({
+        success: function(response, newValue) {
+            console.log("Test"); //update backbone model
+        },
+        ajaxOptions : {
+            url: '/post/edit',
+            data: {},
+            type: 'POST'
+        },
+        success: function(response, newValue) {
+            toastr.success("Done");
+        },
+        error: function(response, newValue) {
+            toastr.error('خطا');
+        }
+    });
+});
