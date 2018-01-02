@@ -4,10 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Validator;
+use Morilog\Jalali\jDate;
 
 class Post extends MyModel
 {
     protected $fillable = ['content','user_id','title','url','tags'];
+    protected $appends = ['persian_date'];
 
     public function user()
     {
@@ -19,9 +21,15 @@ class Post extends MyModel
         return $this->hasMany(Tag::class);
     }
 
-    public function has_access($user_id)
+    public function getPersianDateAttribute()
     {
+//        return jDate::forge($this->asTimeStamp($this->attributes['created_at']))->format('%Y/%m/%d ');
+        return jDate::forge($this->asTimeStamp($this->attributes['created_at']))->ago();
+    }
 
+    public function hasAccess()
+    {
+        return true;
     }
 
     public static function makeValidator($request)

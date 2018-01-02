@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Config;
 use App\Photo;
 use App\Post;
 use App\Tag;
@@ -48,6 +49,10 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::findOrFail($id);
+
+        if (!$post->hasAccess())
+            return abort(404);
+
         $post->load('user');
         dd($post);
         return view('post.show');
@@ -61,6 +66,28 @@ class PostController extends Controller
     public function all()
     {
         sleep(2);
-        return Post::with('user')->paginate(12);
+        return Post::with('user')->orderBy('created_at','desc')->paginate(12);
+    }
+
+    public function image($id)
+    {
+        $post = Post::findOrFail($id);
+
+        if (!$post->hasAccess())
+            return abort(404);
+
+        $name = $post->image;
+        return response()->download(Config::get('global.post.image.path').DIRECTORY_SEPARATOR.$name, null, [], null);
+    }
+
+    public function thumbnail($id)
+    {
+        $post = Post::findOrFail($id);
+
+        if (!$post->hasAccess())
+            return abort(404);
+
+        $name = $post->image;
+        return response()->download(Config::get('global.post.image.thumbnail_path').DIRECTORY_SEPARATOR.$name, null, [], null);
     }
 }

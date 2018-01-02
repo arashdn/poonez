@@ -25,14 +25,14 @@
                             <div class="panel-body">
                                 <span class="pull-right poonez_numbers_forposts">تعداد پونزها<i class="fa fa-thumb-tack"></i></span>
                                 <h3>@{{post.title}}</h3>
-                                <img class="img-rounded" style="width: 100%;" v-bind:src="post.image">
+                                <img class="img-rounded" style="width: 100%;" v-bind:src="'{{route('post.thumbnail').'/'}}'+post._id">
                                 <p style="font-size:11px;">
                                     {{--<a href="#" class="muted_text"><span>نویسنده :@{{post.user.name}} </span></a> - --}}
                                     <br>
                                     <span v-for="item in post.tags"><span class="muted_text">@{{item}}</span> &nbsp;&nbsp;</span>
                                     <br>
                                     <br>
-                                    <span>@{{post.created_at}}</span></p>
+                                    <span>@{{post.persian_date}}</span></p>
                                 <p>@{{post.content}}</p>
 
                             </div>

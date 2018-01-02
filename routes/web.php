@@ -18,7 +18,6 @@
 
 
 Route::get('/test', function () {
-    return response()->download(Config::get('global.post.image.path').DIRECTORY_SEPARATOR."37ecd521670c014aa2ad.jpg", null, [], null);
 });
 
 Route::get('/', function () {
@@ -30,6 +29,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/post/all', 'PostController@all')->name('ajax.post.all');
 Route::get('/post/show/{id?}','PostController@show')->name('post.show');
+Route::get('/post/image/{id?}','PostController@image')->name('post.image');
+Route::get('/post/thumbnail/{id?}','PostController@thumbnail')->name('post.thumbnail');
 
 
 Route::group(['middleware'=> ['auth']], function (){
