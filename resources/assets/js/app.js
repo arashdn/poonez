@@ -29,16 +29,42 @@ $.fn.editableform.buttons =
     '<i class="fa fa-close"></i>'+
     '</button>';
 $(document).ready(function() {
-    $('#title-box').editable({
+    $('#post-title').editable({
         ajaxOptions : {
             url: '/post/edit',
             // data: {},
             type: 'POST'
         },
-        success: function(response, newValue) {
-            toastr.success("Done");
+        success: function(data, newValue) {
+            try
+            {
+                switch(data.status)
+                {
+                    case 'error':
+                        toastr.error(data.message, 'خطا');
+                        return ' ';// this will tell x-editable there were errors.
+                        break;
+                    case 'access_error':
+                        toastr.error(data.message, 'خطا');
+                        return ' ';// this will tell x-editable there were errors.
+                        break;
+                    case 'ok':
+                        toastr.success(data.message);
+                        break;
+                    default :
+                        throw "وضعیت دریافتی از سرور مشخص نیست";
+                        return ' ';// this will tell x-editable there were errors.
+                        break;
+                }
+
+            }
+            catch (exception)
+            {
+                toastr.error('خطایی نامعلوم در دریافت اطلاعات', 'خطا');
+                return ' ';// this will tell x-editable there were errors.
+            }
         },
-        error: function(response, newValue) {
+        error: function(data, newValue) {
             toastr.error('خطا');
         }
     });
@@ -48,10 +74,36 @@ $(document).ready(function() {
             // data: {},
             type: 'POST'
         },
-        success: function(response, newValue) {
-            toastr.success("Done");
+        success: function(data, newValue) {
+            try
+            {
+                switch(data.status)
+                {
+                    case 'error':
+                        toastr.error(data.message, 'خطا');
+                        return ' ';// this will tell x-editable there were errors.
+                        break;
+                    case 'access_error':
+                        toastr.error(data.message, 'خطا');
+                        return ' ';// this will tell x-editable there were errors.
+                        break;
+                    case 'ok':
+                        toastr.success(data.message);
+                        break;
+                    default :
+                        throw "وضعیت دریافتی از سرور مشخص نیست";
+                        return ' ';// this will tell x-editable there were errors.
+                        break;
+                }
+
+            }
+            catch (exception)
+            {
+                toastr.error('خطایی نامعلوم در دریافت اطلاعات', 'خطا');
+                return ' ';// this will tell x-editable there were errors.
+            }
         },
-        error: function(response, newValue) {
+        error: function(data, newValue) {
             toastr.error('خطا');
         }
     });

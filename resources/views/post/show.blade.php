@@ -19,7 +19,15 @@
                     <br><br><br>
                 </div>
                 <div>
-                    <h1 id="title-box" data-type="text" data-title="عنوان را وارد کنید" data-url="/post" data-pk="{{$post->_id}}">{{$post->title}}</h1>
+                    @auth()
+                        @if(auth()->id() == $post->user_id)
+                            <h1 id="post-title" data-type="text" data-title="عنوان را وارد کنید" data-url="/post" data-pk="{{$post->_id}}">{{$post->title}}</h1>
+                        @else
+                            <h1 id="post-titlee">{{$post->title}}</h1>
+                        @endif
+                    @else
+                        <h1 id="post-titlee">{{$post->title}}</h1>
+                    @endauth
                 </div>
                 <div class="panel-body col-md-12">
                     <img class="img-rounded" style="width: 100%; max-width: 800px; max-height: 600px" src="{{route('post.image',['id'=>$post->_id])}}">
@@ -38,7 +46,18 @@
                     {{--<a class="btn repoonez_btn poonez_icon pull-left"><i class="fa fa-thumb-tack"></i>پونز بزن!</a>--}}
                     <br>
                     <br>
-                    <p id="post-content" data-type="textarea" data-url="/post" data-pk="{{$post->_id}}" >{{$post->content}}</p>
+
+
+                    @auth()
+                        @if(auth()->id() == $post->user_id)
+                            <p id="post-content" data-type="textarea" data-url="/post" data-pk="{{$post->_id}}" >{{$post->content}}</p>
+                        @else
+                            <p id="post-contentt" >{{$post->content}}</p>
+                        @endif
+                    @else
+                                <p id="post-contentt" >{{$post->content}}</p>
+                    @endauth
+
                 </div>
                 <div class="panel-footer poonez_panel_footer col-md-12" style="">
                     <h2>نظرات</h2>
@@ -55,10 +74,10 @@
                         <button class="btn send_comment_btn">ارسال</button>
                     </div>
                 </div>
-                <div class="panel-footer poonez_panel_footer col-md-12" style="direction:ltr;">
-                    <button type="button" class="btn">خواندن</button>
-                    <!-- <button type="button" class="btn btn-outline-danger tooltip1" style="color:indianred;border-color: indianred;background-color: #fff">خواندن </button>-->
-                </div>
+                {{--<div class="panel-footer poonez_panel_footer col-md-12" style="direction:ltr;">--}}
+                    {{--<button type="button" class="btn">خواندن</button>--}}
+                    {{--<!-- <button type="button" class="btn btn-outline-danger tooltip1" style="color:indianred;border-color: indianred;background-color: #fff">خواندن </button>-->--}}
+                {{--</div>--}}
             </div>
         </div>
     </div>

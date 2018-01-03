@@ -7,6 +7,7 @@ use App\Photo;
 use App\Post;
 use App\Tag;
 use Illuminate\Http\Request;
+use Response;
 
 class PostController extends Controller
 {
@@ -60,7 +61,52 @@ class PostController extends Controller
 
     public function edit(Request $request)
     {
-        dd($request->all());
+        $post = Post::findOrFail($request->get('pk'));
+
+        if($post->user_id != auth()->id())
+            abort(403);
+
+
+        try
+        {
+            switch ($request->get('name'))
+            {
+                case 'post-content':
+                    $post->content = $request->get('value');
+                    $post->save();
+                    break;
+                    case 'post-title':
+                    $post->title = $request->get('value');
+                    $post->save();
+                    break;
+                default:
+                    throw new \Exception('ورودی مشخص نیست');
+                    break;
+            }
+
+            $res = [
+                'status' => 'ok',
+                'message' => 'با موفقیت ویرایش شد.'
+            ];
+            if($request->ajax() || $request->wantsJson())
+                return Response::json($res, 200);
+            return 'ویرایش شد';
+        }
+        catch (\Exception $e)
+        {
+            $message = 'خطای پایگاه داده رخ داد.';
+
+            if(config('app.debug'))
+                $message .= " \n". $e->getMessage();
+
+            $res = [
+                'status' => 'error',
+                'message' => $message
+            ];
+            if($request->ajax() || $request->wantsJson())
+                return Response::json($res, 200);
+            return 'Error:'.$message;
+        }
     }
 
     public function all()
