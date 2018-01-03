@@ -109,6 +109,44 @@ class PostController extends Controller
         }
     }
 
+    public function delete($id, Request $request)
+    {
+        $post = Post::findOrFail($id);
+
+        if($post->user_id != auth()->id())
+            abort(403);
+
+        try
+        {
+
+            $post->delete();
+            $res = [
+                'status' => 'ok',
+                'message' => 'با موفقیت حذف شد.',
+                'redirect' =>route('home')
+            ];
+            session('status','پست با موفقیت حذف شد.');
+            if($request->ajax() || $request->wantsJson())
+                return Response::json($res, 200);
+            return 'ویرایش شد';
+        }
+        catch (\Exception $e)
+        {
+            $message = 'خطای پایگاه داده رخ داد.';
+
+            if(config('app.debug'))
+                $message .= " \n". $e->getMessage();
+
+            $res = [
+                'status' => 'error',
+                'message' => $message
+            ];
+            if($request->ajax() || $request->wantsJson())
+                return Response::json($res, 200);
+            return 'Error:'.$message;
+        }
+    }
+
     public function all()
     {
         sleep(2);

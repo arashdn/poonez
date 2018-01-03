@@ -59,6 +59,8 @@ Vue.use(infiniteScroll);
 
 var xeditable= require('X-editable/dist/bootstrap3-editable/js/bootstrap-editable.js');
 
+window.jqueryconfirm = require('jquery-confirm');
+
 $.ajaxSetup({
     headers: {
         'X-CSRF-TOKEN': window.Laravel.csrfToken,
@@ -69,4 +71,5 @@ $.ajaxSetup({
 require('./master/navbar');
 require('./home/home');
 require('./post/add');
+require('./post/show');
 

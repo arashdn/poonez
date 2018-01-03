@@ -23,13 +23,10 @@
 Route::get('/test', function () {
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');
 Route::get('/post/all', 'PostController@all')->name('ajax.post.all');
 Route::get('/post/show/{id?}','PostController@show')->name('post.show');
 Route::get('/post/image/{id?}','PostController@image')->name('post.image');
@@ -40,4 +37,5 @@ Route::group(['middleware'=> ['auth']], function (){
     Route::get('/post/add', 'PostController@add')->name('post.add');
     Route::post('/post/add','PostController@store')->name('post.store');
     Route::post('/post/edit','PostController@edit')->name('post.edit');
+    Route::post('/post/delete/{id?}','PostController@delete')->name('post.delete');
 });

@@ -4,18 +4,22 @@
 
     <div class="col-md-3">
     </div>
-    <div class="col-md-6" style="direction:rtl;">
+    <div class="col-md-6" style="direction:rtl;" id="post-show-div">
         <br /><br />
         <div class="col-md-12">
             <div class="panel panel-default poonez_panel pins_MAX col-md-12">
                 <div class="panel-heading poonez_panel_header">
                     <div class="pull-left">
-                        <span><img class="img-rounded" style="border-radius: 50%;width: 50px;height: 50px;" src="http://placehold.it/50x50"></span>
+                        <span><img class="img-rounded" style="border-radius: 50%;width: 50px;height: 50px;" src="http://placehold.it/350x700"></span>
                         &nbsp;<span><a href="#" style="">{{$post->user->name}}</a></span>
                     </div>
-                    <div class="pull-right">
-                        <a href="#" data-toggle="tooltip" title="پونز بزن!" data-placement="bottom"><i class="fa fa-thumb-tack poonez_icon" style=""></i></a>
-                    </div>
+                    @auth
+                        <div class="pull-right">
+                            <a href="#" data-toggle="tooltip" title="پونز بزن!" data-placement="bottom"><i class="fa fa-thumb-tack poonez_icon" style=""></i></a>
+                            <p></p>
+                            <a href="{{route('post.delete',['id'=>$post->_id])}}" id="post-delete" data-toggle="tooltip" title="پست را حذف کن" data-placement="bottom"><i class="fa fa-trash poonez_icon"></i></a>
+                        </div>
+                    @endauth
                     <br><br><br>
                 </div>
                 <div>

@@ -30,6 +30,7 @@ mix.styles([
     'public/css/less.css',
     './node_modules/toastr/build/toastr.css',
     './node_modules/X-editable/dist/bootstrap3-editable/css/bootstrap-editable.css',
+    './node_modules/jquery-confirm/css/jquery-confirm.css',
 ], 'public/css/app.css');
 mix.copy('resources/assets/fonts', 'public/fonts');
 mix.copy('node_modules/font-awesome/fonts/*', 'public/fonts');

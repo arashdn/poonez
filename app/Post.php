@@ -3,12 +3,18 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Mongodb\Eloquent\SoftDeletes;
 use Validator;
 use Morilog\Jalali\jDate;
 
 class Post extends MyModel
 {
+    use SoftDeletes;
+
+    protected $dates = ['created_at', 'updated_at', 'deleted_at'];
+
     protected $fillable = ['content','user_id','title','url','tags'];
+
     protected $appends = ['persian_date'];
 
     public function user()
