@@ -38,4 +38,5 @@ Route::group(['middleware'=> ['auth']], function (){
     Route::post('/post/add','PostController@store')->name('post.store');
     Route::post('/post/edit','PostController@edit')->name('post.edit');
     Route::post('/post/delete/{id?}','PostController@delete')->name('post.delete');
+    Route::post('/comment/add','CommentController@store')->name('comment.store');
 });

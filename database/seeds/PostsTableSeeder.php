@@ -11,6 +11,7 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
+        $images = ['8ccf428fa8bfaeb3c468.jpg','a8f84265fc86795db7fa.jpg'];
         for ($i = 1; $i < 200; $i++)
         {
             $user = DB::table('users')->first()['_id'];
@@ -24,7 +25,8 @@ class PostsTableSeeder extends Seeder
                     'pubic' => $i%2 ==0,
                     'user_id' => $user->__toString(),
                     'tags' => ['t1','t2'],
-                    'image' => '37ecd521670c014aa2ad.jpg',
+                    'image' => $images[array_rand($images)],
+//                    'comments' => [],
                     'created_at' => new \MongoDB\BSON\UTCDateTime($date),
                     'updated_at' => new \MongoDB\BSON\UTCDateTime($date),
                 ]

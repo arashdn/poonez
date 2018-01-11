@@ -22,10 +22,10 @@ class Post extends MyModel
         return $this->belongsTo(User::class,'user_id');
     }
 
-//    public function tags()
-//    {
-//        return $this->hasMany(Tag::class);
-//    }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class,'post_id');
+    }
 
     public function getPersianDateAttribute()
     {

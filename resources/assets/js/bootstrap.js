@@ -56,6 +56,7 @@ window.Vue = require('vue');
 
 var infiniteScroll =  require('vue-infinite-scroll');
 Vue.use(infiniteScroll);
+// Vue.component('pagination', require('laravel-vue-pagination'));
 
 var xeditable= require('X-editable/dist/bootstrap3-editable/js/bootstrap-editable.js');
 

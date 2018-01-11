@@ -159,5 +159,67 @@ if($('#post-show-div').length > 0)
                 }
             });
         });
+
+        $('#btn-send-comment').on('click', function (e) {
+            e.preventDefault();
+            var that = this;
+            $.ajax({
+                url: $(that).attr('href'),
+                type: 'POST',
+                data: $.param({
+                    'pid':$(that).data('pid'),
+                    'body':$('#sent-comment-body').val()
+                }),
+                beforeSend:function()
+                {
+                    $(that).hide();
+                },
+                complete: function()
+                {
+                    $(that).show();
+                },
+                success: function (data)
+                {
+                    try
+                    {
+                        switch(data.status)
+                        {
+                            case 'error':
+                                toastr.error(data.message, 'خطا');
+                                break;
+                            case 'access_error':
+                                toastr.error(data.message, 'خطا');
+                                break;
+                            case 'ok':
+                                toastr.success(data.message);
+                                $('#sent-comment-body').val('');
+                                var s = "<div class=\"col-md-12\">\n" +
+                                    "    <img class=\"img-circle\" src=\"http://placehold.it/350x700\" width=\"50px\" height=\"50px\">&nbsp;&nbsp;\n" +
+                                    "    <a href=\"#\">"+data.user_name+"</a><br>\n" +
+                                    "    <br><p>"+data.body+"</p>\n" +
+                                    "    <hr>\n" +
+                                    "</div>";
+                                $('#post-comments').append(s);
+                                break;
+                            default :
+                                throw "وضعیت دریافتی از سرور مشخص نیست";
+                                break;
+                        }
+
+                    }
+                    catch (exception)
+                    {
+                        toastr.error('خطایی نامعلوم در دریافت اطلاعات', 'خطا');
+                        return ' ';// this will tell x-editable there were errors.
+                    }
+                },
+                error: function (data1, data2, data3)
+                {
+                    toastr.error(data3, 'خطا');
+                }
+            });
+        });
     });
+
+
 }

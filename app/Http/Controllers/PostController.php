@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use Config;
 use App\Photo;
 use App\Post;
@@ -30,6 +31,7 @@ class PostController extends Controller
         $post->url = $request->get('url');
         $post->user_id = auth()->id();
         $post->public = !empty($request->get('public'));
+        $post->comments = [];
 
         $tg = $request->tags;
         str_replace('،',',',$tg);
@@ -55,8 +57,9 @@ class PostController extends Controller
             return abort(404);
 
         $post->load('user');
+        $comments = Comment::with('user')->where('post_id','=',$post->_id)->get();
 
-        return view('post.show',['post' => $post]);
+        return view('post.show',['post' => $post, 'comments'=>$comments]);
     }
 
     public function edit(Request $request)
