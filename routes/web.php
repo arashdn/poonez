@@ -21,6 +21,22 @@
 //});
 
 Route::get('/test', function () {
+    $client = \Plastic::getClient();
+    $params = [
+        'index' => \Plastic::getDefaultIndex(),
+//        'type' => 'posts',
+        'body' => [
+            'query' => [
+                'multi_match' => [
+                    'type' => "best_fields",
+                    'query' => 'arash',
+                    'fields' => ['title','content','name']
+                ]
+            ]
+        ]
+    ];
+    $response = $client->search($params);
+    dd($response);
 });
 
 Auth::routes();

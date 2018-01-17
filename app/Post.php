@@ -4,18 +4,29 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Jenssegers\Mongodb\Eloquent\SoftDeletes;
+use Sleimanx2\Plastic\Searchable;
 use Validator;
 use Morilog\Jalali\jDate;
 
 class Post extends MyModel
 {
     use SoftDeletes;
+    use searchable;
 
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
     protected $fillable = ['content','user_id','title','url','tags'];
 
     protected $appends = ['persian_date'];
+
+    public function buildDocument()
+    {
+        return [
+            'id' => $this->_id,
+            'title' => $this->title,
+            'content' => $this->content,
+        ];
+    }
 
     public function user()
     {

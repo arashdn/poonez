@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Jenssegers\Mongodb\MongodbServiceProvider::class,
+        Sleimanx2\Plastic\PlasticServiceProvider::class
 
     ],
 
