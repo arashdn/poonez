@@ -18,12 +18,12 @@
                                     {{--<span class="board_name_on_post">نام برد</span>--}}
                                 </div>
                                 <div class="pull-right">
-                                    <a v-on:click="sidenav"><i class="fa fa-thumb-tack poonez_icon tooltip1" style=""><span class="tooltiptext">پونز بزن!</span></i></a>
+                                    {{--<a v-on:click="sidenav"><i class="fa fa-thumb-tack poonez_icon tooltip1" style=""><span class="tooltiptext">پونز بزن!</span></i></a>--}}
                                 </div>
                                 <br><br><br>
                             </div>
                             <div class="panel-body">
-                                <span class="pull-right poonez_numbers_forposts">تعداد پونزها<i class="fa fa-thumb-tack"></i></span>
+                                <span class="pull-right poonez_numbers_forposts">@{{post.pin_count}}<i class="fa fa-thumb-tack"></i></span>
                                 <h3>@{{post.title}}</h3>
                                 <img class="img-rounded" style="width: 100%;" v-bind:src="'{{route('post.thumbnail').'/'}}'+post._id">
                                 <p style="font-size:11px;">

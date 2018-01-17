@@ -31,7 +31,8 @@ class PostController extends Controller
         $post->url = $request->get('url');
         $post->user_id = auth()->id();
         $post->public = !empty($request->get('public'));
-        $post->comments = [];
+        $post->pins = [];
+        $post->pin_count = 0;
 
         $tg = $request->tags;
         str_replace('،',',',$tg);
@@ -70,6 +71,8 @@ class PostController extends Controller
             abort(403);
 
 
+        $state = '';
+        $msg = 'با موفقیت ویرایش شد.';
         try
         {
             switch ($request->get('name'))
@@ -78,9 +81,27 @@ class PostController extends Controller
                     $post->content = $request->get('value');
                     $post->save();
                     break;
-                    case 'post-title':
+                case 'post-title':
                     $post->title = $request->get('value');
                     $post->save();
+                    break;
+                case 'pin':
+                    if(!in_array(auth()->id(),$post->pins))
+                    {
+                        $post->push('pins', auth()->id() ,true);
+                        $post->pin_count += 1;
+                        $state = 'pin-add,'.$post->pin_count;
+                        $post->save();
+                        $msg = 'پست پونز زده شد.';
+                    }
+                    else
+                    {
+                        $post->pull('pins', auth()->id());
+                        $post->pin_count -= 1;
+                        $state = 'pin-remove,'.$post->pin_count;
+                        $post->save();
+                        $msg = 'پونز شما برداشته شد';
+                    }
                     break;
                 default:
                     throw new \Exception('ورودی مشخص نیست');
@@ -89,7 +110,8 @@ class PostController extends Controller
 
             $res = [
                 'status' => 'ok',
-                'message' => 'با موفقیت ویرایش شد.'
+                'state' => $state,
+                'message' => $msg
             ];
             if($request->ajax() || $request->wantsJson())
                 return Response::json($res, 200);

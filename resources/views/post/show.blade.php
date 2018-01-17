@@ -15,7 +15,9 @@
                     </div>
                     @auth
                         <div class="pull-right">
-                            <a href="#" data-toggle="tooltip" title="پونز بزن!" data-placement="bottom"><i class="fa fa-thumb-tack poonez_icon" style=""></i></a>
+                            @if(auth()->id() == $post->user_id)
+                            <a id="btn-poonez" href="{{route('post.edit')}}" data-pk="{{$post->_id}}" data-toggle="tooltip" title="پونز بزن!" data-placement="bottom"><i id="btn-icon-poonez" class="fa @if(!in_array(auth()->id(),$post->pins))fa-thumb-tack @else fa-undo @endif poonez_icon" style=""></i></a>
+                            @endif
                             <p></p>
                             <a href="{{route('post.delete',['id'=>$post->_id])}}" id="post-delete" data-toggle="tooltip" title="پست را حذف کن" data-placement="bottom"><i class="fa fa-trash poonez_icon"></i></a>
                         </div>
@@ -31,13 +33,13 @@
                         @endif
                         @else
                             <h1 id="post-titlee">{{$post->title}}</h1>
-                            @endauth
+                    @endauth
                 </div>
                 <div class="panel-body col-md-12">
                     <img class="img-rounded" style="width: 100%; max-width: 800px; max-height: 600px" src="{{route('post.image',['id'=>$post->_id])}}">
                     <br>
                     <br>
-                    <span class="pull-right poonez_numbers_forposts">2.6K <i class="fa fa-thumb-tack"></i></span>
+                    <span class="pull-right poonez_numbers_forposts"><span id="pin-count">{{$post->pin_count}}</span> <i class="fa fa-thumb-tack"></i></span>
                     <p style="font-size:11px;">
                         @foreach($post->tags as $tag)
                             <span class="muted_text">{{$tag}}</span>&nbsp;&nbsp;
