@@ -64,7 +64,7 @@ $(document).ready(function () {
                                     {
                                         $("#search-result-wrapper").append(
                                             "<div class=\"col-md-12 search-result-item\">\n" +
-                                            "    <span><i class=\"fa fa-circle\" style=\"font-size:10px;\"></i></span>&nbsp;&nbsp;\n" +
+                                            "    <span><i class=\"fa fa-circle\" style=\"font-size:10px; color:green\"></i></span>&nbsp;&nbsp;\n" +
                                             "    <img class=\"img-circle\" src=\"http://placehold.it/50x50\" style=\"width:50px;height:50px;\">&nbsp;&nbsp;&nbsp;\n" +
                                             "    <span><a href=\""+data.user_link+"/"+v._source.id+"\">"+v._source.name+"</a></span>&nbsp;&nbsp;&nbsp;\n" +
                                             "    &nbsp;&nbsp;\n" +
@@ -79,7 +79,7 @@ $(document).ready(function () {
                                     {
                                         $("#search-result-wrapper").append(
                                             "<div class=\"col-md-12 search-result-item\">\n" +
-                                            // "    <span><i class=\"fa fa-circle\" style=\"font-size:10px;\"></i></span>&nbsp;&nbsp;\n" +
+                                            "    <span><i class=\"fa fa-circle\" style=\"font-size:10px; color:blue\"></i></span>&nbsp;&nbsp;\n" +
                                             "    <img class=\"img-circle\" src=\""+data.thumbnail_link+"/"+v._source.id+"\" style=\"width:50px;height:50px;\">&nbsp;&nbsp;&nbsp;\n" +
                                             // "    <span><a href=\""+data.post_link+"/"+v._source.id+"\">"+v._source.title+"</a></span>&nbsp;&nbsp;&nbsp;\n" +
                                             "    <span class=\"notfication_p\">"+v._source.title+"</span> &nbsp;&nbsp;\n" +
