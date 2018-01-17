@@ -35,51 +35,21 @@
                 <div class="modal-content">
                     <div class="modal-header poonez_panel_header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h1 class="modal-title ">اعلانات</h1>
+                        <h1 class="modal-title ">نتایج</h1>
                     </div>
                     <div class="modal-body row">
                         <div class="container-fluid">
-                            <div class="col-md-12 notfications_content">
-                                <h2>امروز</h2>
-                                <hr>
-                                <div class="col-md-12">
-                                    <span><i class="fa fa-circle" style="font-size:10px;"></i></span>&nbsp;&nbsp;<img class="img-circle" src="http://placehold.it/50x50" style="width:50px;height:50px;">&nbsp;&nbsp;&nbsp;<span><a href="#">فلانی</a></span>&nbsp;&nbsp;&nbsp;<span class="notfication_p">پست جدید فلانی رو ببینید</span>&nbsp;&nbsp;<span class="time">4 ساعت پیش</span>&nbsp;<a href="#"><i class="fa fa-angle-left next_to_icon" style=""></i></a>
-                                    <hr>
-                                </div>
-                                <div class="col-md-12">
-                                    <span><i class="fa fa-circle" style="font-size:10px;"></i></span>&nbsp;&nbsp;<img class="img-circle" src="http://placehold.it/50x50" style="width:50px;height:50px;">&nbsp;&nbsp;&nbsp;<span><a href="#">فلانیان</a></span>&nbsp;&nbsp;&nbsp;<span class="notfication_p">فلانیان شما رو فالو کرده</span>&nbsp;&nbsp;<span class="time">4 ساعت پیش</span>&nbsp;<a href="#"><i class="fa fa-angle-left next_to_icon" style=""></i></a>
-                                    <hr>
-                                </div>
-                                <div class="col-md-12">
-                                    <span><i class="fa fa-circle" style="font-size:10px;"></i></span>&nbsp;&nbsp;<img class="img-circle" src="http://placehold.it/50x50" style="width:50px;height:50px;">&nbsp;&nbsp;&nbsp;<span><a href="#">فلانی</a></span>&nbsp;&nbsp;&nbsp;<span class="notfication_p">پست جدید فلانی رو ببینید</span>&nbsp;&nbsp;<span class="time">4 ساعت پیش</span>&nbsp;<a href="#"><i class="fa fa-angle-left next_to_icon" style=""></i></a>
-                                    <hr>
-                                </div>
-                                <div class="col-md-12">
-                                    <span><i class="fa fa-circle" style="font-size:10px;"></i></span>&nbsp;&nbsp;<img class="img-circle" src="http://placehold.it/50x50" style="width:50px;height:50px;">&nbsp;&nbsp;&nbsp;<span><a href="#">فلانیان</a></span>&nbsp;&nbsp;&nbsp;<span class="notfication_p">فلانیان شما رو فالو کرده</span>&nbsp;&nbsp;<span class="time">4 ساعت پیش</span>&nbsp;<a href="#"><i class="fa fa-angle-left next_to_icon" style=""></i></a>
-                                    <hr>
-                                </div>
-                                <div class="col-md-12">
-                                    <span><i class="fa fa-circle" style="font-size:10px;"></i></span>&nbsp;&nbsp;<img class="img-circle" src="http://placehold.it/50x50" style="width:50px;height:50px;">&nbsp;&nbsp;&nbsp;<span><a href="#">فلانی</a></span>&nbsp;&nbsp;&nbsp;<span class="notfication_p">پست جدید فلانی رو ببینید</span>&nbsp;&nbsp;<span class="time">4 ساعت پیش</span>&nbsp;<a href="#"><i class="fa fa-angle-left next_to_icon" style=""></i></a>
-                                    <hr>
-                                </div>
-                                <div class="col-md-12">
-                                    <span><i class="fa fa-circle" style="font-size:10px;"></i></span>&nbsp;&nbsp;<img class="img-circle" src="http://placehold.it/50x50" style="width:50px;height:50px;">&nbsp;&nbsp;&nbsp;<span><a href="#">فلانیان</a></span>&nbsp;&nbsp;&nbsp;<span class="notfication_p">فلانیان شما رو فالو کرده</span>&nbsp;&nbsp;<span class="time">4 ساعت پیش</span>&nbsp;<a href="#"><i class="fa fa-angle-left next_to_icon" style=""></i></a>
-                                    <hr>
-                                </div>
-                                <h2>دیروز</h2>
-                                <hr>
-                                <div class="col-md-12">
-                                    &nbsp;&nbsp;<img class="img-circle" src="http://placehold.it/50x50" style="width:50px;height:50px;">&nbsp;&nbsp;&nbsp;<span><a href="#">فلانی</a></span>&nbsp;&nbsp;&nbsp;<span class="notfication_p">پست جدید فلانی رو ببینید</span>&nbsp;&nbsp;<span class="time">4 ساعت پیش</span>&nbsp;<a href="#"><i class="fa fa-angle-left next_to_icon" style=""></i></a>
-                                    <hr>
-                                </div>
-                                <h2>2 روز پیش</h2>
-                                <hr>
-                                <div class="col-md-12">
-                                    &nbsp;&nbsp;<img class="img-circle" src="http://placehold.it/50x50" style="width:50px;height:50px;">&nbsp;&nbsp;&nbsp;<span><a href="#">فلانی</a></span>&nbsp;&nbsp;&nbsp;<span class="notfication_p">پست جدید فلانی رو ببینید</span>&nbsp;&nbsp;<span class="time">4 ساعت پیش</span>&nbsp;<a href="#"><i class="fa fa-angle-left next_to_icon" style=""></i></a>
-                                    <hr>
-                                </div>
-                                <div class="col-md-12">
-                                    &nbsp;&nbsp;<img class="img-circle" src="http://placehold.it/50x50" style="width:50px;height:50px;">&nbsp;&nbsp;&nbsp;<span><a href="#">پونز</a></span>&nbsp;&nbsp;&nbsp;<span class="notfication_p">5 دنیای جدید در انتظار شماست</span>&nbsp;&nbsp;<span class="time">4 ساعت پیش</span>&nbsp;<a href="#"><i class="fa fa-angle-left next_to_icon" style=""></i></a>
+                            <hr>
+                            <div id="search-result-wrapper" class="col-md-12 notfications_content">
+                                {{--<h2>امروز</h2>--}}
+                                <div class="col-md-12 search-result-item">
+                                    <span><i class="fa fa-circle" style="font-size:10px;"></i></span>&nbsp;&nbsp;
+                                    <img class="img-circle" src="http://placehold.it/50x50" style="width:50px;height:50px;">&nbsp;&nbsp;&nbsp;
+                                    <span><a href="#">فلانی</a></span>&nbsp;&nbsp;&nbsp;
+                                    <span class="notfication_p">پست جدید فلانی رو ببینید</span>&nbsp;&nbsp;
+                                    <a href="#">
+                                    <i class="fa fa-angle-left next_to_icon" style=""></i>
+                                    </a>
                                     <hr>
                                 </div>
                             </div>
@@ -95,8 +65,8 @@
     </div>
     <div class="col-md-12">
         <div id="search">
-            <form>
-                <input type="search" placeholder="!دنیا خودت رو کشف کن" />
+            <form id="search-form" action="{{route('search')}}">
+                <input id="search-input" type="search" autocomplete="off" placeholder="!دنیای خودت رو کشف کن" />
                 <button type="submit" class="btn">پیدا کن</button>
             </form>
         </div>
@@ -104,7 +74,7 @@
     <nav class="" style="direction:rtl;">
         <div class="container header">
             <div class="col-md-12 brand_col">
-                <a href="#" class="poonez_brand"><i class="fa fa-thumb-tack"></i>پونز</a>
+                <a href="{{route('home')}}" class="poonez_brand"><i class="fa fa-thumb-tack"></i>پونز</a>
             </div>
             <br>
             <div class="btn_group">
@@ -114,7 +84,7 @@
                 @else
                     <a class="btn myprofile_btn"><i class="fa fa-user-circle-o"></i>پروفایل من</a>
                 @endguest
-                <a class="btn mymessages_btn" data-toggle="modal" data-target="#myModal" style="position:relative;"><i class="fa fa-commenting-o"></i>اعلانات&nbsp;<span class="btn_badge" style="">6</span></a>
+                {{--<a class="btn mymessages_btn" data-toggle="modal" data-target="#myModal" style="position:relative;"><i class="fa fa-commenting-o"></i>اعلانات&nbsp;<span class="btn_badge" style="">6</span></a>--}}
                 {{--<button class="btn explore_btn"><i class="fa fa-map-signs"></i>گشتن</button>--}}
                 <a class="btn search_btn"><i class="fa fa-search"></i>جست وجو</a>
                 @auth

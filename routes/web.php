@@ -21,22 +21,7 @@
 //});
 
 Route::get('/test', function () {
-    $client = \Plastic::getClient();
-    $params = [
-        'index' => \Plastic::getDefaultIndex(),
-//        'type' => 'posts',
-        'body' => [
-            'query' => [
-                'multi_match' => [
-                    'type' => "best_fields",
-                    'query' => 'arash',
-                    'fields' => ['title','content','name']
-                ]
-            ]
-        ]
-    ];
-    $response = $client->search($params);
-    dd($response);
+
 });
 
 Auth::routes();
@@ -47,6 +32,10 @@ Route::get('/post/all', 'PostController@all')->name('ajax.post.all');
 Route::get('/post/show/{id?}','PostController@show')->name('post.show');
 Route::get('/post/image/{id?}','PostController@image')->name('post.image');
 Route::get('/post/thumbnail/{id?}','PostController@thumbnail')->name('post.thumbnail');
+
+Route::post('/search/','SearchController@search')->name('search');
+
+Route::get('/user/{id?}','UserController@profile')->name('user.profile');
 
 
 Route::group(['middleware'=> ['auth']], function (){
