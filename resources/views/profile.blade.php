@@ -43,16 +43,16 @@
                 </div>
                 <div class="col-md-9" style="text-align:center;vertical-align:middle;">
                     <div class="col-md-4 col-sm-4 col-xs-4" style="text-align:center;">
-                        <h3 class="follow_numbers">20</h3>
-                        <span class="follow_number">پونز ها</span>
+                        <h3 class="follow_numbers">{{$post_count}}</h3>
+                        <span class="follow_number">پست‌ها</span>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-4" style="text-align:center;">
-                        <h3 class="follow_numbers">10</h3>
-                        <span class="follow_number">دنبال کننده ها</span>
+                        <h3 class="follow_numbers">؟؟</h3>
+                        <span class="follow_number">دنبال کننده‌ها</span>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-4" style="text-align:center;">
-                        <h3 class="follow_numbers">5</h3>
-                        <span class="follow_number">دنبال شده ها</span>
+                        <h3 class="follow_numbers">؟؟</h3>
+                        <span class="follow_number">دنبال شده‌ها</span>
                     </div>
                 </div>
                 <div class="pull-right">

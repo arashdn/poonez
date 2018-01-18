@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Jenssegers\Mongodb\Eloquent\SoftDeletes;
 use Sleimanx2\Plastic\Searchable;
 use Validator;
@@ -46,7 +47,16 @@ class Post extends MyModel
 
     public function hasAccess()
     {
-        return true;
+        if ($this->public)
+            return true;
+        if (Auth::guest())
+            return false;
+        $sender = $this->user_id;
+        if (auth()->id()== $sender)
+            return true; //self post
+        if(in_array($sender,auth()->user()->following))
+            return true;
+        return false;
     }
 
     public static function makeValidator($request)

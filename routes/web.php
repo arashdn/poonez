@@ -35,7 +35,7 @@ Route::get('/post/thumbnail/{id?}','PostController@thumbnail')->name('post.thumb
 
 Route::post('/search/','SearchController@search')->name('search');
 
-Route::get('/user/{id?}','UserController@profile')->name('user.profile');
+Route::post('/user/{id?}','UserController@profile')->name('user.profile');
 
 
 Route::group(['middleware'=> ['auth']], function (){

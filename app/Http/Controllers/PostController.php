@@ -175,7 +175,16 @@ class PostController extends Controller
     public function all()
     {
         sleep(2);
-        return Post::with('user')->orderBy('created_at','desc')->paginate(12);
+
+        if(auth()->guest())
+            return Post::with('user')
+                ->where('public',true)
+                ->orderBy('created_at','desc')->paginate(12);
+        return Post::with('user')
+            ->Orwhere('public',true)
+            ->OrWhereIn('user_id',auth()->user()->following)
+            ->OrWhere('user_id',auth()->id())
+            ->orderBy('created_at','desc')->paginate(12);
     }
 
     public function image($id)
