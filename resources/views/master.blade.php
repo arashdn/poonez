@@ -82,7 +82,7 @@
                     <a href="{{route('login')}}" class="btn sign_in_btn"><i class="fa fa-unlock-alt"></i>ورود</a>
                     <a  href="{{route('register')}}" class="btn sign_up_btn"><i class="fa fa-user-plus"></i>ثبت نام</a>
                 @else
-                    <a class="btn myprofile_btn"><i class="fa fa-user-circle-o"></i>پروفایل من</a>
+                    <a href="{{route('user.profile',['id'=>auth()->id()])}}" class="btn myprofile_btn"><i class="fa fa-user-circle-o"></i>پروفایل من</a>
                 @endguest
                 {{--<a class="btn mymessages_btn" data-toggle="modal" data-target="#myModal" style="position:relative;"><i class="fa fa-commenting-o"></i>اعلانات&nbsp;<span class="btn_badge" style="">6</span></a>--}}
                 {{--<button class="btn explore_btn"><i class="fa fa-map-signs"></i>گشتن</button>--}}

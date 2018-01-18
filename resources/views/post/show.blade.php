@@ -11,7 +11,7 @@
                 <div class="panel-heading poonez_panel_header">
                     <div class="pull-left">
                         <span><img class="img-rounded" style="border-radius: 50%;width: 50px;height: 50px;" src="http://placehold.it/350x700"></span>
-                        &nbsp;<span><a href="#" style="">{{$post->user->name}}</a></span>
+                        &nbsp;<span><a href="{{route('user.profile',['id'=>$post->user->id])}}" style="">{{$post->user->name}}</a></span>
                     </div>
                     @auth
                         <div class="pull-right">
