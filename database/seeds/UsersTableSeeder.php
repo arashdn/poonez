@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Sleimanx2\Plastic\Facades\Plastic;
 
 class UsersTableSeeder extends Seeder
 {
@@ -11,6 +12,13 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        $client = Plastic::getClient();
+        if($client->indices()->exists(['index'=> Plastic::getDefaultIndex()]))
+            $client->indices()->delete(['index'=> Plastic::getDefaultIndex()]);
+        $client->indices()->create(['index' => Plastic::getDefaultIndex()]);
+
+        \Illuminate\Support\Facades\Artisan::call('mapping:rerun');
+        echo "Elastic Index re-created\n";
 
         $user = new \App\User(
             [

@@ -35,7 +35,7 @@ Route::get('/post/thumbnail/{id?}','PostController@thumbnail')->name('post.thumb
 
 Route::post('/search/','SearchController@search')->name('search');
 
-Route::post('/user/{id?}','UserController@profile')->name('user.profile');
+Route::get('/user/profile/{id?}','UserController@profile')->name('user.profile');
 
 
 Route::group(['middleware'=> ['auth']], function (){
@@ -44,4 +44,6 @@ Route::group(['middleware'=> ['auth']], function (){
     Route::post('/post/edit','PostController@edit')->name('post.edit');
     Route::post('/post/delete/{id?}','PostController@delete')->name('post.delete');
     Route::post('/comment/add','CommentController@store')->name('comment.store');
+    Route::post('/user/follow/{id?}','UserController@follow')->name('user.follow');
+    Route::post('/user/unfollow/{id?}','UserController@unfollow')->name('user.unfollow');
 });

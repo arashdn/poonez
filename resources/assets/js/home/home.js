@@ -1,113 +1,98 @@
-$(document).ready(function () {
-    if ($('#main_view').length>0)
-    {
+// if ( $('#main_view').length >0 )
+// {
+//     $(document).ready(function () {
         var app = new Vue({
             el: '#app',
-            data : {
-                posts : [],
+            data: {
+                posts: [],
                 busy: false,
-                loading:1,
-                page:1,
+                loading: 1,
+                page: 1,
             },
             created: function () {
                 this.loading = 0;
             },
             methods: {
-                loadMore: function() {
+                loadMore: function () {
                     const vm = this;
-                    vm.loading=1;
-                    vm.busy=true;
+                    vm.loading = 1;
+                    vm.busy = true;
                     vm.getallpost();
                 },
                 getallpost: function () {
                     const vm = this;
                     $.ajax({
-                        url: getPostUrl+'?page='+vm.page,
+                        url: getPostUrl + '?page=' + vm.page,
                         type: 'GET',
                         // data: $.param(data),
-                        beforeSend:function()
-                        {
+                        beforeSend: function () {
                             $(".beforload").show();
                         },
-                        complete: function()
-                        {
+                        complete: function () {
                             $(".beforload").hide();
                         },
-                        success: function (response)
-                        {
-                            try
-                            {
-                                if(response.data.length =='0')
-                                {
-                                    vm.busy=true;
+                        success: function (response) {
+                            try {
+                                if (response.data.length == '0') {
+                                    vm.busy = true;
                                 }
-                                else
-                                {
+                                else {
                                     vm.busy = false;
                                 }
-                                for(var i=0;i<response.data.length;i++) {
+                                for (var i = 0; i < response.data.length; i++) {
                                     vm.posts.push(response.data[i]);
                                 }
-                                vm.loading=0;
-                                vm.page +=1;
+                                vm.loading = 0;
+                                vm.page += 1;
                             }
-                            catch (exception)
-                            {
+                            catch (exception) {
                                 toastr.error('خطایی نامعلوم در دریافت اطلاعات', 'خطا');
                                 console.log(exception);
                             }
                         },
-                        error: function (data1, data2, data3)
-                        {
+                        error: function (data1, data2, data3) {
                             toastr.error(data3, 'خطا');
                         }
                     });
                 },
-                getdata : function()
-                {
+                getdata: function () {
                     var that = this;
                     $.ajax({
                         url: '/post/all',
                         type: 'GET',
                         // data: $.param(data),
-                        beforeSend:function()
-                        {
+                        beforeSend: function () {
                             $(".beforload").show();
                         },
-                        complete: function()
-                        {
+                        complete: function () {
                             $(".beforload").hide();
                         },
-                        success: function (data)
-                        {
-                            try
-                            {
+                        success: function (data) {
+                            try {
                                 that.posts = data;
                             }
-                            catch (exception)
-                            {
+                            catch (exception) {
                                 toastr.error('خطایی نامعلوم در دریافت اطلاعات', 'خطا');
                                 console.log(exception);
                             }
                         },
-                        error: function (data1, data2, data3)
-                        {
+                        error: function (data1, data2, data3) {
                             toastr.error(data3, 'خطا');
                         }
                     });
                 },
-                sidenav :function(){
+                sidenav: function () {
                     $('#mysidenav').toggleClass('showsidenav');
                     $('.background-sidenav').toggleClass('background-sidenavshow');
                 }
             },
-            mounted(){
+            mounted() {
                 // this.getdata();
                 // $(".beforload").hide();
                 // $(".afterload").show();
             }
         });
-    }
+//     });
+// }
 
-});
 

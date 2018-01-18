@@ -72,4 +72,5 @@ require('./master/navbar');
 require('./home/home');
 require('./post/add');
 require('./post/show');
+require('./user/profile');
 

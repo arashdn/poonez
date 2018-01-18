@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'پونز') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -86,7 +86,7 @@
                 @endguest
                 {{--<a class="btn mymessages_btn" data-toggle="modal" data-target="#myModal" style="position:relative;"><i class="fa fa-commenting-o"></i>اعلانات&nbsp;<span class="btn_badge" style="">6</span></a>--}}
                 {{--<button class="btn explore_btn"><i class="fa fa-map-signs"></i>گشتن</button>--}}
-                <a class="btn search_btn"><i class="fa fa-search"></i>جست وجو</a>
+                <a class="btn search_btn"><i class="fa fa-search"></i>جست‌وجو</a>
                 @auth
                     <a class="btn logout_btn" onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
