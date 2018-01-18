@@ -7,10 +7,10 @@
     <div class="container afterload" style="direction:rtl;" xmlns:v-on="http://www.w3.org/1999/xhtml">
         <div class="col-md-12" style="direction:rtl;text-align:right"><a href="{{route('post.add')}}" class="fixed-button">ایجاد پست جدید</a></div>
 
-        <div class="col-md-12" id="main_view">
+        <div id="main_view">
             <div class="row myrow">
                 <div class="item"  v-for="post in posts">
-                    <div class="col-md-12">
+                    <div class="col-md-4">
                         <div class="panel panel-default poonez_panel">
                             <div class="panel-heading poonez_panel_header">
                                 <div class="pull-left">
@@ -26,7 +26,9 @@
                             <div class="panel-body">
                                 <span class="pull-right poonez_numbers_forposts">@{{post.pin_count}}<i class="fa fa-thumb-tack"></i></span>
                                 <h3>@{{post.title}}</h3>
-                                <img class="img-rounded" style="width: 100%;" v-bind:src="'{{route('post.thumbnail').'/'}}'+post._id">
+                                <a v-bind:href="'{{route('post.show').'/'}}' + post._id">
+                                    <img class="img-rounded" style="width: 100%;" v-bind:src="'{{route('post.thumbnail').'/'}}'+post._id">
+                                </a>
                                 <p style="font-size:11px;">
                                     {{--<a href="#" class="muted_text"><span>نویسنده :@{{post.user.name}} </span></a> - --}}
                                     <br>
@@ -34,7 +36,9 @@
                                     <br>
                                     <br>
                                     <span>@{{post.persian_date}}</span></p>
-                                <p>@{{post.content}}</p>
+                                <div class="mainpage-post-content">
+                                    <p>@{{post.content}}</p>
+                                </div>
 
                             </div>
                             <div class="panel-footer poonez_panel_footer" style="">
@@ -45,7 +49,7 @@
                     </div>
                 </div>
 
-                <div class="col s12">
+                <div class="col-sm-12">
                     <div  v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10">
                     </div>
                 </div>

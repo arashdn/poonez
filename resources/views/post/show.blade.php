@@ -36,7 +36,9 @@
                     @endauth
                 </div>
                 <div class="panel-body col-md-12">
-                    <img class="img-rounded" style="width: 100%; max-width: 800px; max-height: 600px" src="{{route('post.image',['id'=>$post->_id])}}">
+                    <a href="{{$post->url}}">
+                        <img class="img-rounded" style="width: 100%; max-width: 800px; max-height: 600px" src="{{route('post.image',['id'=>$post->_id])}}">
+                    </a>
                     <br>
                     <br>
                     <span class="pull-right poonez_numbers_forposts"><span id="pin-count">{{$post->pin_count}}</span> <i class="fa fa-thumb-tack"></i></span>
